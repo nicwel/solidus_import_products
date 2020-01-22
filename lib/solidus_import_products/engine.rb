@@ -13,7 +13,8 @@ module SolidusImportProducts
         Rails.application.config.cache_classes ? require(c) : load(c)
       end
 
-      Spree::UserMailer.send(:include, SolidusImportProducts::UserMailerExt)
+      #Spree::UserMailer.send(:include, SolidusImportProducts::UserMailerExt)
+      UserMailer.send(:include, SolidusImportProducts::UserMailerExt)
 
       # TODO: replace the class_eval
       #Spree::User.class_eval do

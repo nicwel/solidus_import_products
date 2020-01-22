@@ -23,7 +23,8 @@ RSpec.describe ImportProductsJob, type: :job do
 
         expect do
           perform_enqueued_jobs { job_now }
-        end.to change(Spree::UserMailer.deliveries, :size).by(1)
+        #end.to change(Spree::UserMailer.deliveries, :size).by(1)
+        end.to change(UserMailer.deliveries, :size).by(1)
       end
 
       it 'error' do
@@ -31,7 +32,8 @@ RSpec.describe ImportProductsJob, type: :job do
 
         expect do
           perform_enqueued_jobs { job_now }
-        end.to change(Spree::UserMailer.deliveries, :size).by(1)
+        #end.to change(Spree::UserMailer.deliveries, :size).by(1)
+        end.to change(UserMailer.deliveries, :size).by(1)
       end
     end
   end
