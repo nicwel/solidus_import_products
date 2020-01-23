@@ -12,7 +12,9 @@ module Spree
 
       def create
         @product_imports = spree_current_user.product_imports.create(product_import_params)
-        ImportProductsJob.perform_later(@product_imports)
+        # ImportProductsJob.perform_later(@product_imports)
+        # file not found error if performing later
+	ImportProductsJob.perform_now(@product_imports)
         flash[:notice] = t('product_import_processing')
         redirect_to admin_product_imports_path
       end
